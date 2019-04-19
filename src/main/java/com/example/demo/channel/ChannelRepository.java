@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ChannelRepository extends CrudRepository<Channel, Long> {
-    List<User> findAllByChannelId(Channel channel);
+    List<User> findAllById(Channel channel);
 }
