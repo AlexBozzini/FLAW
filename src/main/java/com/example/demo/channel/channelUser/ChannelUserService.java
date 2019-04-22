@@ -21,7 +21,7 @@ public class ChannelUserService {
     }
 
     public Iterable<User> getAllUsersInChannel(Channel channel){
-        return channelRepository.findAllById(channel);
+        return channel.getUsers();
     }
 
     public Boolean addUser(Channel channel, User user){
