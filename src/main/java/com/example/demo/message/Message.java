@@ -2,6 +2,7 @@ package com.example.demo.message;
 
 import com.example.demo.channel.Channel;
 import com.example.demo.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -18,6 +19,7 @@ public class Message {
 
     @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -8,12 +8,10 @@ import org.springframework.stereotype.Service;
 public class MessageService {
 
     private MessageRepository messageRepository;
-    private ChannelRepository channelRepository;
 
     @Autowired
-    public MessageService(MessageRepository messageRepository, ChannelRepository channelRepository) {
+    public MessageService(MessageRepository messageRepository) {
         this.messageRepository = messageRepository;
-        this.channelRepository = channelRepository;
     }
 
     public Iterable<Message> index() {

@@ -22,11 +22,10 @@ public class MessageServiceTests {
 
     private MessageService messageService;
     private MessageRepository messageRepository = Mockito.mock(MessageRepository.class);
-    private ChannelRepository channelRepository = Mockito.mock(ChannelRepository.class);
 
     @Before
     public void setUp(){
-        messageService = new MessageService(messageRepository, channelRepository);
+        messageService = new MessageService(messageRepository);
     }
 
     @Test
