@@ -3,6 +3,8 @@ package com.example.demo.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -13,8 +15,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Iterable<User> index() {
-        return userRepository.findAll();
+    public List<User> index() {
+        return (List<User>) userRepository.findAll();
     }
 
     public User show(Long id) {
@@ -37,4 +39,7 @@ public class UserService {
     }
 
 
+//    public List<User> findAll() {
+//        return userRepository.findAll();
+//    }
 }

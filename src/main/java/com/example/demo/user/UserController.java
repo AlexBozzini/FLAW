@@ -5,7 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+//@RequestMapping("/users")
+//@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+
 public class UserController {
 
     private UserService userService;
@@ -17,11 +25,15 @@ public class UserController {
 
 
 
-    @RequestMapping(value="/users", method= RequestMethod.GET)
-    public ResponseEntity<Iterable<User>> index() {
-        return new ResponseEntity<>(userService.index(), HttpStatus.OK);
+    @GetMapping("/users")
+    public List<User> index() {
+        return userService.index();
     }
 
+//    @GetMapping("/users")
+//    public List<User> getUsers() {
+//        return userService.findAll();
+//    }
 
 
     @GetMapping("/users/{userid}")
