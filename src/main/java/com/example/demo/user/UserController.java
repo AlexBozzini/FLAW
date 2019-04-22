@@ -54,8 +54,8 @@ public class UserController {
 
 
     @RequestMapping(value = "/users/{userid}", method = RequestMethod.DELETE)
-    public ResponseEntity<Boolean> delete(Long id) {
-        return new ResponseEntity<>(userService.delete(id), HttpStatus.OK);
+    public ResponseEntity<Boolean> delete(@PathVariable Long userid) {
+        return new ResponseEntity<>(userService.delete(userid), HttpStatus.OK);
     }
 
 
