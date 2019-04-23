@@ -1,6 +1,8 @@
 package com.example.demo.message;
 
 import com.example.demo.channel.ChannelRepository;
+import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +10,13 @@ import org.springframework.stereotype.Service;
 public class MessageService {
 
     private MessageRepository messageRepository;
+    private UserRepository userRepository;
     private ChannelRepository channelRepository;
 
     @Autowired
-    public MessageService(MessageRepository messageRepository, ChannelRepository channelRepository) {
+    public MessageService(MessageRepository messageRepository, UserRepository userRepository, ChannelRepository channelRepository) {
         this.messageRepository = messageRepository;
+        this.userRepository = userRepository;
         this.channelRepository = channelRepository;
     }
 
@@ -25,6 +29,7 @@ public class MessageService {
     }
 
     public Message create(Message message) {
+
         return messageRepository.save(message);
     }
 

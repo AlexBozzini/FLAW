@@ -2,26 +2,26 @@ package com.example.demo.message;
 
 import com.example.demo.channel.Channel;
 import com.example.demo.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "messages")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     private String messageBody;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "channel_id")
+    @ManyToOne
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Channel channel;
 
     public Message() {
