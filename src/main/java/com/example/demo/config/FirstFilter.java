@@ -19,6 +19,7 @@ public class FirstFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         res.addHeader("Access-Control-Allow-Origin", "*");
+        res.addHeader("Access-Control-Allow-Headers", "*");
         chain.doFilter(req, res);
     }
 
