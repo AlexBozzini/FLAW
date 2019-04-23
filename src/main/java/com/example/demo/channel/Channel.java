@@ -15,11 +15,9 @@ public class Channel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "message_id")
+    @OneToMany
     private List<Message> messages;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @ManyToMany
     private List<User> users;
 
     public Channel(){
@@ -38,6 +36,10 @@ public class Channel {
         this.name = name;
         this.messages = messages;
         this.users = users;
+    }
+
+    public Channel(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

@@ -6,6 +6,7 @@ import com.example.demo.message.Message;
 import com.example.demo.message.MessageRepository;
 import com.example.demo.message.MessageService;
 import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -22,10 +23,12 @@ public class MessageServiceTests {
 
     private MessageService messageService;
     private MessageRepository messageRepository = Mockito.mock(MessageRepository.class);
+    private UserRepository userRepository = Mockito.mock(UserRepository.class);
+    private ChannelRepository channelRepository = Mockito.mock(ChannelRepository.class);
 
     @Before
     public void setUp(){
-        messageService = new MessageService(messageRepository);
+        messageService = new MessageService(messageRepository, userRepository, channelRepository);
     }
 
     @Test

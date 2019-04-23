@@ -39,7 +39,7 @@ public class UserTest {
         JacksonTester.initFields(this, jsonWriter);
         User user = new User();
         user.setUsername("laxmi");
-        user.setUserid(1l);
+        user.setId(1l);
 //
 //        String json = jsonWriter.writeValueAsString(user);
 //        System.out.println(json);
