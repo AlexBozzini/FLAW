@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class MessageRequest {
     private String messageBody;
-    private Long userid;
+    private Long userId;
     private Long channelId;
 
-    public MessageRequest(String messageBody, Long userid, Long channelId) {
+    public MessageRequest(String messageBody, Long userId, Long channelId) {
         this.messageBody = messageBody;
-        this.userid = userid;
+        this.userId = userId;
         this.channelId = channelId;
     }
 
@@ -25,7 +25,7 @@ public class MessageRequest {
     }
 
     public Long getUserId() {
-        return userid;
+        return userId;
     }
 
     @Override
@@ -34,17 +34,17 @@ public class MessageRequest {
         if (o == null || getClass() != o.getClass()) return false;
         MessageRequest that = (MessageRequest) o;
         return Objects.equals(messageBody, that.messageBody) &&
-                Objects.equals(userid, that.userid) &&
+                Objects.equals(userId, that.userId) &&
                 Objects.equals(channelId, that.channelId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(messageBody, userid, channelId);
+        return Objects.hash(messageBody, userId, channelId);
     }
 
     public void setUserId(Long userid) {
-        this.userid = userid;
+        this.userId = userid;
     }
 
     public Long getChannelId() {
@@ -59,7 +59,7 @@ public class MessageRequest {
     public String toString() {
         return "MessageRequest{" +
                 "messageBody='" + messageBody + '\'' +
-                ", userid=" + userid +
+                ", userid=" + userId +
                 ", channelId=" + channelId +
                 '}';
     }
